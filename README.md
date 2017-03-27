@@ -10,9 +10,12 @@
 * windows-x64-v140 (Visual Studio 2015)   
 * linux-i686 (gcc-4.9)   
 * linux-x86_64 (gcc-4.9)   
+* linux-armel (gcc-4.9)   
 * linux-armhf (gcc-4.9)   
+* linux-aarch64 (gcc-4.9)   
 * android-armeabi-v7a (ndk-r12b/api-21)   
 * android-arm64-v8a (ndk-r12b/api-21)  
+* android-x86 (ndk-r12b/api-21)  
    
 **BUILD ENVIRONMENT**  
 * Windows 10 x64 15063   
@@ -25,7 +28,8 @@ Open "Bash on Ubuntu on Windows"
 ```
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get install gcc-4.9 g++-4.9 libc6-dev:i386 libstdc++-4.9-dev:i386 lib32gcc-4.9-dev gcc-4.9-arm-linux-gnueabihf g++-4.9-arm-linux-gnueabihf
+sudo apt-get install gcc-4.9 g++-4.9 libc6-dev:i386 libstdc++-4.9-dev:i386 lib32gcc-4.9-dev 
+sudo apt-get install gcc-4.9-arm-linux-gnueabihf g++-4.9-arm-linux-gnueabihf gcc-4.9-arm-linux-gnueabi g++-4.9-arm-linux-gnueabi gcc-4.9-aarch64-linux-gnu g++-4.9-aarch64-linux-gnu
 sudo apt-get install autoconf libtool make p7zip-full python
 ```
    
@@ -127,6 +131,25 @@ make
 Get header files from include/curl   
 Get libcurl.a from lib/.libs   
    
+**BUILD LIBCURL (linux-armel)**   
+Open "Bash on Ubuntu on Windows"   
+```
+git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_52_1 --depth=1
+export CC=arm-linux-gnueabi-gcc-4.9
+export AR=arm-linux-gnueabi-gcc-ar-4.9
+export RANLIB=arm-linux-gnueabi-gcc-ranlib-4.9
+export CPPFLAGS="-I$(pwd)/prebuilt-libz/linux-armel/include"
+export LDFLAGS="-L$(pwd)/prebuilt-libz/linux-armel/lib" 
+export LIBS=-ldl
+cd curl
+./buildconf
+./configure --with-pic --host=arm-linux-gnueabi --disable-shared
+make
+```
+Get header files from include/curl   
+Get libcurl.a from lib/.libs   
+   
 **BUILD LIBCURL (linux-armhf)**   
 Open "Bash on Ubuntu on Windows"   
 ```
@@ -141,6 +164,25 @@ export LIBS=-ldl
 cd curl
 ./buildconf
 ./configure --with-pic --host=arm-linux-gnueabihf --disable-shared
+make
+```
+Get header files from include/curl   
+Get libcurl.a from lib/.libs   
+   
+**BUILD LIBCURL (linux-aarch64)**   
+Open "Bash on Ubuntu on Windows"   
+```
+git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_52_1 --depth=1
+export CC=aarch64-linux-gnu-gcc-4.9
+export AR=aarch64-linux-gnu-gcc-ar-4.9
+export RANLIB=aarch64-linux-gnu-gcc-ranlib-4.9
+export CPPFLAGS="-I$(pwd)/prebuilt-libz/linux-aarch64/include"
+export LDFLAGS="-L$(pwd)/prebuilt-libz/linux-aarch64/lib" 
+export LIBS=-ldl
+cd curl
+./buildconf
+./configure --with-pic --host=aarch64-linux-gnu --disable-shared
 make
 ```
 Get header files from include/curl   
