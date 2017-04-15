@@ -241,4 +241,25 @@ make
 ```
 Get header files from include/curl   
 Get libcurl.a from lib/.libs   
-
+   
+**BUILD LIBCURL (raspbian-armhf)**   
+Open "Bash on Ubuntu on Windows"   
+```
+git clone https://github.com/raspberrypi/tools.git raspberrypi --depth=1
+git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_52_1 --depth=1
+export PATH=$(pwd)/raspberrypi/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH
+export CC=arm-linux-gnueabihf-gcc
+export AR=arm-linux-gnueabihf-gcc-ar
+export RANLIB=arm-linux-gnueabihf-gcc-ranlib
+export CPPFLAGS="-I$(pwd)/prebuilt-libz/raspbian-armhf/include"
+export LDFLAGS="-L$(pwd)/prebuilt-libz/raspbian-armhf/lib" 
+export LIBS=-ldl
+cd curl
+./buildconf
+./configure --with-pic --host=arm-linux-gnueabihf --disable-shared
+make
+```
+Get header files from include/curl   
+Get libcurl.a from lib/.libs   
+   
