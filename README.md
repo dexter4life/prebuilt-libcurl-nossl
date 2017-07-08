@@ -1,4 +1,4 @@
-# LIBCURL 7.54.0 (No SSL)
+# LIBCURL 7.54.1 (No SSL)
 [https://github.com/curl/curl](https://github.com/curl/curl)   
   
 [__ZLIB__](http://www.zlib.net/) - Copyright (C)1995-2017 Jean-loup Gailly and Mark Adler   
@@ -8,6 +8,8 @@
 * windows-x64-v120 (Visual Studio 2013)   
 * windows-Win32-v140 (Visual Studio 2015)   
 * windows-x64-v140 (Visual Studio 2015)   
+* windows-Win32-v141 (Visual Studio 2017)   
+* windows-x64-v141 (Visual Studio 2017)   
 * linux-i686 (gcc-4.9)   
 * linux-x86_64 (gcc-4.9)   
 * linux-armel (gcc-4.9)   
@@ -46,7 +48,7 @@ android-ndk-r12b/build/tools/make_standalone_toolchain.py --arch x86 --api 21 --
 **BUILD LIBCURL (windows-Win32-v120)**  
 Open "VS2013 x86 Native Tools Command Prompt"   
 ```
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 cd curl\winbuild
 nmake /f Makefile.vc mode=static VC=12 DEBUG=no MACHINE=x86 ENABLE_WINSSL=no
 nmake /f Makefile.vc mode=static VC=12 DEBUG=yes MACHINE=x86 ENABLE_WINSSL=no
@@ -58,7 +60,7 @@ Get libcurl_a_debug.lib from builds\libcurl-vc12-x86-debug-static-ipv6-sspi\lib
 **BUILD LIBCURL (windows-x64-v120)**  
 Open "VS2013 x64 Native Tools Command Prompt"    
 ```
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 cd curl\winbuild
 nmake /f Makefile.vc mode=static VC=12 DEBUG=no MACHINE=x64 ENABLE_WINSSL=no
 nmake /f Makefile.vc mode=static VC=12 DEBUG=yes MACHINE=x64 ENABLE_WINSSL=no
@@ -70,7 +72,7 @@ Get libcurl_a_debug.lib from builds\libcurl-vc12-x64-debug-static-ipv6-sspi\lib
 **BUILD LIBCURL (windows-Win32-v140)**  
 Open "VS2015 x86 Native Tools Command Prompt"   
 ```
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 cd curl\winbuild
 nmake /f Makefile.vc mode=static VC=14 DEBUG=no MACHINE=x86 ENABLE_WINSSL=no
 nmake /f Makefile.vc mode=static VC=14 DEBUG=yes MACHINE=x86 ENABLE_WINSSL=no
@@ -82,7 +84,31 @@ Get libcurl_a_debug.lib from builds\libcurl-vc14-x86-debug-static-ipv6-sspi\lib
 **BUILD LIBCURL (windows-x64-v140)**  
 Open "VS2015 x64 Native Tools Command Prompt"    
 ```
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
+cd curl\winbuild
+nmake /f Makefile.vc mode=static VC=14 DEBUG=no MACHINE=x64 ENABLE_WINSSL=no
+nmake /f Makefile.vc mode=static VC=14 DEBUG=yes MACHINE=x64 ENABLE_WINSSL=no
+```
+Get header files from builds\libcurl-vc14-x64-release-static-ipv6-sspi\include   
+Get libcurl_a.lib from builds\libcurl-vc14-x64-release-static-ipv6-sspi\lib    
+Get libcurl_a_debug.lib from builds\libcurl-vc14-x64-debug-static-ipv6-sspi\lib    
+
+**BUILD LIBCURL (windows-Win32-v141)**  
+Open "x86 Native Tools Command Prompt for VS2017"    
+```
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
+cd curl\winbuild
+nmake /f Makefile.vc mode=static VC=14 DEBUG=no MACHINE=x86 ENABLE_WINSSL=no
+nmake /f Makefile.vc mode=static VC=14 DEBUG=yes MACHINE=x86 ENABLE_WINSSL=no
+```
+Get header files from builds\libcurl-vc14-x86-release-static-ipv6-sspi\include   
+Get libcurl_a.lib from builds\libcurl-vc14-x86-release-static-ipv6-sspi\lib    
+Get libcurl_a_debug.lib from builds\libcurl-vc14-x86-debug-static-ipv6-sspi\lib    
+   
+**BUILD LIBCURL (windows-x64-v141)**  
+Open "x64 Native Tools Command Prompt for VS2017"    
+```
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 cd curl\winbuild
 nmake /f Makefile.vc mode=static VC=14 DEBUG=no MACHINE=x64 ENABLE_WINSSL=no
 nmake /f Makefile.vc mode=static VC=14 DEBUG=yes MACHINE=x64 ENABLE_WINSSL=no
@@ -95,7 +121,7 @@ Get libcurl_a_debug.lib from builds\libcurl-vc14-x64-debug-static-ipv6-sspi\lib
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export CC=gcc-4.9
 export AR=gcc-ar-4.9
 export RANLIB=gcc-ranlib-4.9
@@ -115,7 +141,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export CC=gcc-4.9
 export AR=gcc-ar-4.9
 export RANLIB=gcc-ranlib-4.9
@@ -135,7 +161,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export CC=arm-linux-gnueabi-gcc-4.9
 export AR=arm-linux-gnueabi-gcc-ar-4.9
 export RANLIB=arm-linux-gnueabi-gcc-ranlib-4.9
@@ -154,7 +180,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export CC=arm-linux-gnueabihf-gcc-4.9
 export AR=arm-linux-gnueabihf-gcc-ar-4.9
 export RANLIB=arm-linux-gnueabihf-gcc-ranlib-4.9
@@ -173,7 +199,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export CC=aarch64-linux-gnu-gcc-4.9
 export AR=aarch64-linux-gnu-gcc-ar-4.9
 export RANLIB=aarch64-linux-gnu-gcc-ranlib-4.9
@@ -192,7 +218,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export PATH=$(pwd)/arm-linux-androideabi/bin:$PATH
 export CROSS_COMPILE=arm-linux-androideabi-
 export CPPFLAGS="-I$(pwd)/prebuilt-libz/android-armeabi-v7a/include"
@@ -210,7 +236,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export PATH=$(pwd)/aarch64-linux-android/bin:$PATH
 export CROSS_COMPILE=aarch64-linux-android-
 export CPPFLAGS="-I$(pwd)/prebuilt-libz/android-arm64-v8a/include"
@@ -228,7 +254,7 @@ Get libcurl.a from lib/.libs
 Open "Bash on Ubuntu on Windows"   
 ```
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export PATH=$(pwd)/i686-linux-android/bin:$PATH
 export CROSS_COMPILE=i686-linux-android-
 export CPPFLAGS="-I$(pwd)/prebuilt-libz/android-x86/include"
@@ -247,7 +273,7 @@ Open "Bash on Ubuntu on Windows"
 ```
 git clone https://github.com/raspberrypi/tools.git raspberrypi --depth=1
 git clone https://github.com/djp952/prebuilt-libz.git -b libz-1.2.8 --depth=1
-git clone https://github.com/curl/curl.git -b curl-7_54_0 --depth=1
+git clone https://github.com/curl/curl.git -b curl-7_54_1 --depth=1
 export PATH=$(pwd)/raspberrypi/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH
 export CC=arm-linux-gnueabihf-gcc
 export AR=arm-linux-gnueabihf-gcc-ar
